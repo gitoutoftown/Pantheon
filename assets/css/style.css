@@ -1,0 +1,763 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+*:focus {
+    outline: none;
+}
+
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#fff;
+    letter-spacing: .5px;
+}
+
+body {
+    background-color:#0D0D0D;
+   /* background-color: lightgray; */
+    font-size: 14px;
+    min-width: 720px;
+}
+
+img {
+    /*box-shadow: 0.01em 0 0px 2px #333333;*/
+}
+
+.errorMessage {
+    font: initial;
+    font-style: oblique;
+    font-size: 20px;
+    color: red;
+    display: block;
+    /*margin-top: 15px; */
+    
+    padding: 10px 0px 20px 0px;
+}
+
+#nowPlayingBarContainer {
+    width: 100%;
+    background-color: #151515;
+    bottom: 0;
+    position: fixed;
+    min-width: 620px;
+}
+
+#nowPlayingBar {
+	display: flex;
+    height: 90px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight {
+	width: 30%;
+    min-width: 180px;
+}
+
+#nowPlayingRight {
+	position: relative;
+    margin-top: 16px;
+}
+
+#nowPlayingCenter {
+	width: 40%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nowPlayingBar .content {
+	width: 100%;
+	height: 57px;
+}
+
+.playerControls .buttons {
+	margin: 0 auto;
+    display: table;
+}
+
+.controlButton {
+	background-color: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+.controlButton img {
+	width: 20px;
+    height: 20px;
+}
+
+.controlButton.play img,
+.controlButton.pause img {
+	width: 32px;
+	height: 32px;
+}
+
+.controlButton:hover {
+	cursor: pointer;
+}
+
+.progressTime {
+	color: #464446;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.playbackBar {
+	display: flex;
+}
+
+.progressBar {
+	width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.progressBarBg {
+	background-color: #404040;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.progress {
+	background-color: #E0FF1D;
+    height: 4px;
+    width: 0;
+    border-radius: 2px;
+}
+
+.playbackBar .progressBar {
+	margin-top: 3px;
+}
+
+#nowPlayingLeft .albumArtwork {
+	height: 100%;
+    max-width: 57px;
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+}
+
+#nowPlayingLeft .trackInfo {
+    display: table;
+    
+}
+
+#nowPlayingLeft .trackInfo .trackName {
+	margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+	font-size: 12px;
+    color: #a0a0a0;
+}
+
+.volumeBar {
+	width: 180px;
+    position: absolute;
+    right: 0;
+}
+
+.volumeBar .progressBar {
+	width: 125px;
+}
+
+#topContainer {
+	min-height: 0%; 
+	width: 100%;
+}
+
+#navBarContainer {
+	background-color: #000;
+    /*width: 220px;*/
+    
+    /*height: 100vh;*/
+    
+    position: fixed;
+   
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 30px;
+
+}
+
+.navBar {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.logo {
+    margin-bottom: 15px;
+}
+
+.logo img {
+    width: 32px;
+}
+
+.navBar .group {
+    border-top: 1px solid #a0a0a0;
+    padding: 10px 0;
+}
+
+.navItem {
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.navItemLink {
+    color: #464446;
+    text-decoration: none;
+}
+
+.navItemLink:hover {
+    color: #fff;
+}
+
+.navItemLink .icon {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 25px;
+}
+
+#mainViewContainer {
+    margin-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
+
+#mainContent {
+    padding: 0 20px;
+
+    display: block;
+    text-align: left;
+
+    width: 1012px;
+    min-width: 1012px;
+    margin: 0 auto;
+}
+
+.pageHeadingBig {
+    padding: 20px;
+    text-align: center;
+}
+
+.gridViewItem {
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.gridViewItem img {
+    width: 100%;
+    height: 200px;
+    width: 200px;
+    max-width: 200px;
+    min-width: 200px;
+    box-shadow: 0.01em 0 0px 6px #e0ff1d;
+    border-radius: 3%;
+}
+
+.gridViewInfo {
+    font-weight: 300;
+    text-align: center;
+    padding: 10px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gridViewItem a {
+    text-decoration: none;
+}
+
+.entityInfo {
+    padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.entityInfo .leftSection {
+    width: 30%;
+    float: left;
+    max-width: 250px;
+}
+
+.entityInfo .leftSection img {
+    width: 100%;
+    max-width: 200px;
+    min-width: 200px;
+    box-shadow: 0.01em 0 0px 6px #e0ff1d;
+    border-radius: 3%;
+    
+}
+
+.entityInfo .rightSection {
+    width: 70%;
+    float: left;
+    padding: 5px 10px 5px 40px;
+    box-sizing: border-box;
+}
+
+.entityInfo .rightSection h2 {
+    margin-top: 0px;
+}
+
+.entityInfo .rightSection p {
+    color: #fff;
+    font-weight: 200;
+    line-height: 1.7em;
+    font-weight: 200;
+    font-size: 1.35em;
+
+    background-color: #000;
+    box-shadow:  0.01em 0 14px 1px #e0ff1d, -0.01em 0 0 #e9e9e9;
+    /*0.01em 0 10px 1px #e9e9e9, -0.01em 0 0 #e9e9e9;*/
+    /* word-wrap: break-word; */
+    /* word-break: break-word; */
+    color: inherit;
+    /* display: inline; */
+    font-family: inherit;
+    /* line-height: 1.7em; */
+    padding: .2em 2em 2em 2em;
+    width: fit-content;
+}
+
+#e9e9e908
+
+.tracklist {
+    padding: 0;
+}
+
+.tracklistRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none;
+}
+
+.tracklistRow span {
+    color: #939393;
+    font-weight: 200;
+}
+
+.tracklistRow:hover {
+    background-color: #282828;
+}
+
+.tracklistRow .trackCount {
+    width: 8%;
+    float: left;
+}
+
+.tracklistRow .trackCount img {
+    width: 20px;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.tracklistRow:hover .trackCount img {
+    visibility: visible;
+}
+
+.tracklistRow .trackCount span {
+    visibility: visible;
+}
+
+.tracklistRow:hover .trackCount span {
+    visibility: hidden;
+}
+
+.tracklistRow .trackInfo {
+    width: 75%;
+    float: left;
+}
+
+.tracklistRow .trackInfo span {
+    display: block;
+}
+
+.tracklistRow .trackOptions {
+    width: 5%;
+    float: left;
+    text-align: right;
+}
+
+.tracklistRow .trackOptions img {
+    width: 15px;
+    visibility: hidden;
+}
+
+.tracklistRow:hover .trackOptions img {
+    visibility: visible;
+}
+
+.tracklistRow .trackDuration {
+    width: 12%;
+    float: left;
+    text-align: right;
+}
+
+.tracklistRow .trackInfo .trackName {
+    color: #fff;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+.artistInfo {
+    text-align: center;
+}
+
+.button {
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    /*background-color: #464445;*/
+    background-color: #333;
+    font-weight: 500;
+    letter-spacing: 2px;
+    /*border: 2px solid #16021d;*/
+    border: 2px solid #000;
+    border-radius: 500px;
+    padding: 15px;
+    min-width: 130px;
+}
+
+.button.playlist {
+    /*
+    background-color: #464445;
+    border-color: #16021d;
+    */
+    background-color: #333;
+    border: 2px solid #000;
+}
+
+.borderBottom {
+    border-bottom: 1px solid #939393;
+    margin-bottom: 20px;
+}
+
+.tracklistContainer h2,
+.gridViewContainer h2,
+.artistsContainer h2,
+.transcriptionsContainer h2 {
+    text-align: center;
+}
+
+[role="link"] {
+    cursor: pointer;
+}
+
+.searchContainer {
+    background-color: #242424;
+    padding: 20px 28px;
+    color: #FFEFEF;
+}
+
+.searchContainer h4 {
+    margin: 0;
+    font-weight: 300;
+    color: #757575;
+}
+
+.searchContainer .searchInput {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 62px;
+    letter-spacing: 2px;
+    padding: 40px 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.searchResultRow {
+    padding: 15px 10px;
+}
+
+.searchResultRow:hover {
+    background-color: #282828;
+}
+
+.searchResultRow .artistName span {
+    color: #fff;
+}
+
+.searchResultRow .artistName span img {
+    width: 50;
+    height: auto;
+}
+
+.noResults {
+    margin: 15px;
+    display: block;
+}
+
+.buttonItems .button {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.playlistsContainer {
+    padding: 10px 0;
+}
+
+
+.playlistImage {
+    border: 3px solid #282828;
+    padding: 10px;
+}
+
+.optionsMenu {
+    position: fixed;
+    background-color: #282828;
+    width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    z-index: 1000;
+    display: none;
+}
+
+.optionsMenu .item {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-weight: 400;
+    color: rgba(147, 147, 147, 0.8);
+    cursor: pointer;
+    height: 40px;
+    background-color: #282828;
+    font-size: 14px;
+}
+
+.optionsMenu .item:hover {
+    color: #403C3C;
+    background-color: #333;
+    border-color: #333;
+}
+
+.optionsMenu select {
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.userInfo h1 {
+    text-align: center;
+}
+
+.userDetails {
+    padding: 20px;
+}
+
+.userDetails .container h2 {
+    text-align: center;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"],
+.userDetails .container .button {
+    display: block;
+    margin: 16px auto;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"] {
+    height: 50px;
+    width: 100%;
+    background: #1f1f1f;
+    color: whitesmoke;
+    border: none;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 20px;
+}
+
+.userDetails .container .message {
+    color: #E0FF1D;
+    font-weight: 300;
+}
+
+.submissionContent {
+    margin-top: 20px;
+}
+
+.submissionContent .container h2 {
+    text-align: center;
+}
+
+.submissionContent .container input[type="text"],
+.submissionContent .container textarea[type="text"],
+.submissionContent .container /*.button*/ {
+    /* display: block;*/
+    /* margin: 16px auto; */
+    
+    color: #000;
+    display: block;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    cursor: text;
+    margin-bottom: 3rem;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.submissionContent .container input[type="text"],
+/* .submissionContent .container input[type="password"] */{
+    /*
+    height: 50px;
+    width: 100%;
+    background: #1f1f1f;
+    color: whitesmoke;
+    border: none;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 20px; */
+}
+
+.submissionContent .container .message {
+    color: #E0FF1D;
+    font-weight: 300;
+}
+
+.submissionContent .container .newMetadata {
+    display: block;
+}
+
+.submissionContent .container .newMetadata .addInfoSection {
+    /*padding:20px; */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.submissionContent .container .newMetadata .addInfoSection .addInfoColumn {
+    /*padding:0 1rem; */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.submissionContent .container .newMetadata .addInfoSection .addInfoColumn .addInfoSuggestions {
+   /* position: absolute; */
+    width: 100%;
+}
+
+input[type="text"] {
+    /*font-family: Programme,sans-serif;*/
+    display: block;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    width: 95%;
+    color:black;
+    border-radius: 0px;
+    min-width: 200px;
+    line-height: 30px;
+    height: 30px;
+    font-size: 15px;
+    /* border: 1px solid #CCC;*/
+    outline: none;
+    margin: 0px !important;
+    padding: 2px 0px 0px 5px;
+}
+
+textarea {
+    color:black;
+}
+
+/*
+input[type="radio"], textarea {
+    
+    color:black;
+}
+*/
+
+/*
+.genreOptions  {
+    color:black;
+}
+*/
+
+.submissionContent .container .newMetadata .addInfoSection {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#000;
+    letter-spacing: 1px;
+}
+/*
+.submissionContent .container .newMetadata .addInfoSection .addInfoTranscription {
+    padding:0 1rem;
+}
+
+.submissionContent .container .newMetadata .addInfoSection .addInfoSupplementary {
+    padding:0 1rem;
+}
+
+.addInfoSection {
+    padding:0;
+}
+
+.addInfoColumn {
+    padding:0;
+}
+
+.addInfoPrimary {
+    padding:0;
+}
+
+.addInfoTranscription {
+    padding:0;
+}
+
+.addInfoSupplementary {
+    padding:0;
+}
+*/
